@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">catCat</string>
+    <string name="downloadPictureButton">GET MORE</string>
+    <string name="purgePictureButton">BEGONE</string>
+    <string name="viewPictureButton">LOOK AT THEM</string>
+    <string name="amountLabel">Kittens</string>
+    <string name="maxHozLabel">Longest Boy(px)</string>
+    <string name="maxVertLabel">Tallest Boy(px)</string>
+    <string name="exitButton">RUN AWAY</string>
+    <string name="testingKeyString">testingKeyStringReturnValue</string>
+    <string name="nextCatButton">meow</string>
+    <string name="prevCatButton">grrr</string>
+    <string name="returnButton">bacc</string>
+</resources>
