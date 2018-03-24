@@ -13,13 +13,13 @@ import java.net.URL;
 // i have no idea what i'm doing halp, multi threading is hard :(
 // but at least it works
 
-public class GetKittenRunnable implements Runnable{
+public class DownloadCatRunnable implements Runnable{
     String kittenURL;
     String storageLocation;
     int minHoz, maxHoz, minVert, maxVert;
 
 
-    public GetKittenRunnable(String saveTo, int minHoz, int maxHoz, int minVert, int maxVert){
+    public DownloadCatRunnable(String saveTo, int minHoz, int maxHoz, int minVert, int maxVert){
         this.storageLocation = saveTo;
         this.minHoz = minHoz;
         this.maxHoz = maxHoz;

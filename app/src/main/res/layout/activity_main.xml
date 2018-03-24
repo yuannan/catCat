@@ -23,10 +23,12 @@
         android:id="@+id/vertText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="44dp"
         android:text="@string/maxVertLabel"
         app:layout_constraintEnd_toStartOf="@+id/vertBox"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hozText" />
 
@@ -34,10 +36,12 @@
         android:id="@+id/amoutText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
         android:text="@string/amountLabel"
         app:layout_constraintEnd_toStartOf="@+id/amountBox"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,10 +82,12 @@
         android:id="@+id/hozText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="44dp"
         android:text="@string/maxHozLabel"
         app:layout_constraintEnd_toStartOf="@+id/hozBox"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amoutText" />
 
@@ -104,7 +110,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="64dp"
         android:layout_marginEnd="16dp"
-        android:onClick="viewPictures"
+        android:onClick="viewCats"
         android:text="@string/viewPictureButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +131,6 @@
         android:id="@+id/generalMessageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="meow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -135,9 +140,8 @@
 
     <ImageView
         android:id="@+id/mainMenuImage"
-        android:layout_width="377dp"
-        android:layout_height="208dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:cropToPadding="false"
         app:layout_constraintBottom_toTopOf="@+id/downloadProgress"
@@ -152,7 +156,6 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/goButton"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"

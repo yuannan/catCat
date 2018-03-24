@@ -11,75 +11,68 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class PictureActivity extends AppCompatActivity {
-    public int currentIndex;
     Intent intent;
-    int amount;
-    String storagePath;
+    public int currentCat;
+    int totalCats;
+    String fullStoragePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture);
 
+        // getting intent and vars
         this.intent = getIntent();
+        this.totalCats = intent.getIntExtra("cat.catcat.totalCats", -1);
+        this.fullStoragePath = intent.getStringExtra("cat.catcat.fullStoragePath");
 
-        this.amount = intent.getIntExtra("cat.catcat.totalCats", -1);
-        this.storagePath = intent.getStringExtra("cat.catcat.fullStoragePath");
-        this.setPicture(0);
-
-        this.quickToast("Enjoy your kittens!");
+        // displays the cats
+        this.setCat(0);
+        this.quickToast("Enjoy your cats!");
     }
 
-    public void setPicture(int img){
-        currentIndex = img;
+    public void setCat(int cat){
+        currentCat = cat;
         // updating text
-        TextView currentKittenText = findViewById(R.id.currentKittenText);
-        currentKittenText.setText("Kitty#"+String.valueOf(img+1)); // +1 for the normal people
+        TextView currentCatText = findViewById(R.id.currentCatText);
+        currentCatText.setText("Cat#"+String.valueOf(cat + 1)); // +1 for the normal people
 
         // setting the new image
         ImageView imageView = findViewById(R.id.imageView);
-        BitmapDrawable imageToShow = new BitmapDrawable(getResources(), storagePath+img+".jpg");
+        BitmapDrawable imageToShow = new BitmapDrawable(getResources(), fullStoragePath + cat + ".jpg");
         if(imageToShow.getBitmap() == null){
-            this.quickToast("missing kitty");
+            this.quickToast("Missing cat!");
+            imageView.setImageResource(R.mipmap.kittenapped);
         } else {
             imageView.setImageDrawable(imageToShow);
         }
     }
 
-    public void returnToMainMenu(View view){
-        finish();
+    public void nextCat(View view){
+        // increments the index and shows the cat
+        currentCat++;
+        currentCat = currentCat % totalCats;
+        setCat(currentCat);
     }
 
-    public void nextPicture(View view){
-        // increments the index and shows the picture
-        currentIndex++;
-        currentIndex = currentIndex % amount;
-        setPicture(currentIndex);
-    }
-
-    public void prevPicture(View view){
+    public void prevCat(View view){
         // makes sure that the index will not fall below 0
-        if(currentIndex > 0){
-            currentIndex--;
+        if(currentCat > 0){
+            currentCat--;
         } else{
-            currentIndex = amount - 1;
+            currentCat = totalCats - 1;
         }
 
-        // currentIndex = (currentIndex > 0)? (currentIndex - 1) : (amount - 1);
-
-        // currentIndex = (currentIndex > 0)? currentIndex : amount;
-        // currentIndex--;
-
-        // currentIndex--;
-        // if(currentIndex < 0) currentIndex = amount - 1;
-
-        setPicture(currentIndex);
+        setCat(currentCat);
     }
 
     public void quickToast(String message){
         Context context = getApplicationContext();
         Toast toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+    public void returnToMainMenu(View view){
+        finish();
     }
 }
